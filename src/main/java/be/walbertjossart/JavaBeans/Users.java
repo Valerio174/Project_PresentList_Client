@@ -71,6 +71,10 @@ public class Users implements Serializable {
 	public void setMessages(ArrayList<List> messages) {
 		this.messages = messages;
 	}
+	@Override
+	public String toString() {
+		return "Users [id=" + id + ", pseudo=" + pseudo + ", password=" + password + ", email=" + email;
+	}
 
 	
 	/*Methods*/
@@ -84,4 +88,5 @@ public class Users implements Serializable {
 //	public void AddMessage(Message new_message) {
 //	as_guest_lists.add(new_message);
 //}
+	
 }
