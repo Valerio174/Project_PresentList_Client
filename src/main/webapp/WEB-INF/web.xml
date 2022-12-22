@@ -11,12 +11,31 @@
   </welcome-file-list>
   
    <servlet>
-  	<servlet-name>TestServlet</servlet-name>
-  	<servlet-class>be.walbertjossart.Servlets.TestServlet</servlet-class>
+  	<servlet-name>HomePageServlet</servlet-name>
+  	<servlet-class>be.walbertjossart.Servlets.HomePageServlet</servlet-class>
   </servlet>
   
     <servlet-mapping>
-      <servlet-name>TestServlet</servlet-name>
-      <url-pattern>/TestServlet</url-pattern>
+      <servlet-name>HomePageServlet</servlet-name>
+      <url-pattern>/HomePageServlet</url-pattern>
   </servlet-mapping>
+ 
+	<servlet>
+		<servlet-name>LogInServlet</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.LogInServlet</servlet-class>
+	</servlet>
+ 	<servlet-mapping>
+		<servlet-name>LogInServlet</servlet-name>
+		<url-pattern>/LogInServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SignInServlet</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.SignInServlet</servlet-class>
+	</servlet>
+ 	<servlet-mapping>
+		<servlet-name>SignInServlet</servlet-name>
+		<url-pattern>/SignInServlet</url-pattern>
+	</servlet-mapping>
+  
 </web-app>
