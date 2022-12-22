@@ -74,6 +74,8 @@ public class Present implements Serializable{
 	}
 	
 	/*Constructor(s)*/
+	public Present() {}
+	
 	/*With ALL attributs*/
 	public Present(int id_present, String name, String description, double average_price, int priority, int state,
 			String link, Image image, List list) {

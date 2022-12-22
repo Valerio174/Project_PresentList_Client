@@ -26,6 +26,7 @@ public class List implements Serializable{
 		this.state = state;
 		this.owner=owner;
 		this.guests = new ArrayList<>();
+		this.guests.add(guest);
 		this.presents = new ArrayList<>();
 		this.presents.add(present);
 	}
