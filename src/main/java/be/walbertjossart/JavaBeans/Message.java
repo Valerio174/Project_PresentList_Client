@@ -3,8 +3,6 @@ package be.walbertjossart.JavaBeans;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import be.walbertjossart.DAO.AbstractDAOFactory;
-
 public class Message implements Serializable {
 
 	/*Attributs*/
@@ -12,8 +10,7 @@ public class Message implements Serializable {
  	private int id_message;
 	private String content; 
 	private Users users;
-	private AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
-
+	
 	/*Constructor(s)*/
 	public Message() {}
 	public Message(int id_message, String content, Users users) {
