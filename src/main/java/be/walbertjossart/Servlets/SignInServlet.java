@@ -23,8 +23,7 @@ import be.walbertjossart.JavaBeans.Users;
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			Users users = new Users();
-			System.out.println(users.toString());
+		doGet(request, response);
 	}
 
 }
