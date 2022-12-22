@@ -3,6 +3,9 @@ package be.walbertjossart.JavaBeans;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import be.walbertjossart.DAO.AbstractDAOFactory;
+import be.walbertjossart.DAO.DAO;
+ 
 public class Users implements Serializable {
 	
 	/*Attributs*/
@@ -14,9 +17,18 @@ public class Users implements Serializable {
 	private ArrayList<List>own_lists;
 	private ArrayList<List>as_guest_lists;
 	private ArrayList<List>messages;
+	static AbstractDAOFactory adf = AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY);
+	static DAO<Users> usersDAO = adf.getUsersDAO();
 	
 	/*Constructor(s)*/
 	public Users() {}
+	public Users(String pseudo, String password) {
+ 		this.pseudo = pseudo;
+		this.password = password;
+ 		own_lists = new ArrayList<>();
+		as_guest_lists = new ArrayList<>();
+		messages = new ArrayList<>();
+	}
 	public Users(int id, String pseudo, String password, String email) {
 		this.id = id;
 		this.pseudo = pseudo;
@@ -71,13 +83,12 @@ public class Users implements Serializable {
 	public void setMessages(ArrayList<List> messages) {
 		this.messages = messages;
 	}
-	@Override
-	public String toString() {
-		return "Users [id=" + id + ", pseudo=" + pseudo + ", password=" + password + ", email=" + email;
-	}
 
 	
 	/*Methods*/
+	public static ArrayList<Users> getAll(){
+		return usersDAO.findAll();
+	}
 //	public void AddOwnList(List new_list) {
 //		own_lists.add(new_list);
 //	}
@@ -88,5 +99,4 @@ public class Users implements Serializable {
 //	public void AddMessage(Message new_message) {
 //	as_guest_lists.add(new_message);
 //}
-	
 }
