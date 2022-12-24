@@ -1,11 +1,10 @@
 package be.walbertjossart.DAO;
 
-import java.sql.Connection;
 
 import be.walbertjossart.JavaBeans.List;
 import be.walbertjossart.JavaBeans.Message;
 import be.walbertjossart.JavaBeans.Present;
-import be.walbertjossart.JavaBeans.Users;
+import be.walbertjossart.JavaBeans.Users; 
 
 public class DAOFactory extends AbstractDAOFactory{
 	

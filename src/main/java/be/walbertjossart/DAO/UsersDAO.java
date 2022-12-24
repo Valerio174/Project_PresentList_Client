@@ -1,19 +1,21 @@
 package be.walbertjossart.DAO;
 
 import java.net.URI;
-import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriBuilder;
 
 import org.json.JSONArray;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 import be.walbertjossart.JavaBeans.Users;
 
@@ -38,27 +40,38 @@ public class UsersDAO extends DAO<Users>{
 	 
 
 	@Override
-	public boolean create(Users obj) {
-		// TODO Auto-generated method stub
+	public boolean create(Users users) {
+		
+		MultivaluedMap<String, String> paramsPost = new MultivaluedMapImpl();
+		paramsPost.add("pseudo", users.getPseudo());
+		paramsPost.add("password", users.getPassword());
+		paramsPost.add("email", users.getEmail());
+		
+		ClientResponse res = ressource
+				.path("user")
+				.post(ClientResponse.class, paramsPost);
+	
+		int HttpResponseCode = res.getStatus();
+		if(HttpResponseCode == 201) {
+			return true;
+		}
 		return false;
+		
 	}
 
 	@Override
 	public boolean delete(Users obj) {
-		// TODO Auto-generated method stub
-		return false;
+ 		return false;
 	}
 
 	@Override
 	public boolean update(Users obj) {
-		// TODO Auto-generated method stub
-		return false;
+ 		return false;
 	}
 
 	@Override
 	public Users find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+ 		return null;
 	}
 
 	@Override
