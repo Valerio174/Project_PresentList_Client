@@ -1,6 +1,7 @@
 package be.walbertjossart.JavaBeans;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import be.walbertjossart.DAO.AbstractDAOFactory;
@@ -22,13 +23,6 @@ public class Users implements Serializable {
 	
 	/*Constructor(s)*/
 	public Users() {}
-	public Users(String pseudo, String password) {
- 		this.pseudo = pseudo;
-		this.password = password;
- 		own_lists = new ArrayList<>();
-		as_guest_lists = new ArrayList<>();
-		messages = new ArrayList<>();
-	}
 	public Users(int id, String pseudo, String password, String email) {
 		this.id = id;
 		this.pseudo = pseudo;
@@ -38,7 +32,14 @@ public class Users implements Serializable {
 		as_guest_lists = new ArrayList<>();
 		messages = new ArrayList<>();
 	}
-	
+	public Users(String pseudo, String password, String email) {
+ 		this.pseudo = pseudo;
+		this.password = password;
+		this.email = email;
+		own_lists = new ArrayList<>();
+		as_guest_lists = new ArrayList<>();
+		messages = new ArrayList<>();
+	}
 	
 	/*Getters/Setters*/
 	public int getId() {
@@ -86,6 +87,9 @@ public class Users implements Serializable {
 
 	
 	/*Methods*/
+	public boolean insertUsers() throws SQLException {
+		return usersDAO.create(this);
+	}
 	public static ArrayList<Users> getAll(){
 		return usersDAO.findAll();
 	}
