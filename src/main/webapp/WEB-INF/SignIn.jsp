@@ -25,7 +25,7 @@
 	 			<tr>
 	    			<td>Email: </td>
 	    			<td>
-	    				<input type="email" name="email" id="email" value="" size="20"/>
+	    				<input type="email" name="email" id="email" value="" size="50"/>
 	   				</td>
 	 			</tr>
 	 			<tr>
