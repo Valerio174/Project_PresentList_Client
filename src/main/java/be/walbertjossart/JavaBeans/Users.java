@@ -1,11 +1,16 @@
 package be.walbertjossart.JavaBeans;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
 import be.walbertjossart.DAO.AbstractDAOFactory;
 import be.walbertjossart.DAO.DAO;
+import be.walbertjossart.DAO.UsersDAO;
  
 public class Users implements Serializable {
 	
@@ -87,6 +92,14 @@ public class Users implements Serializable {
 
 	
 	/*Methods*/
+	public static Users GetUser(String pseudo, String password) throws JsonParseException, JsonMappingException, IOException {
+		UsersDAO users = (UsersDAO)usersDAO;
+		
+		if(users.GetUser(pseudo, password) != null) {
+			return (users.GetUser(pseudo, password));
+		}
+		return null;
+	}
 	public boolean insertUsers() throws SQLException {
 		return usersDAO.create(this);
 	}

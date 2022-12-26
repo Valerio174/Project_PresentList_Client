@@ -1,6 +1,8 @@
 package be.walbertjossart.DAO;
 
 import java.net.URI;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.ws.rs.core.MediaType;
@@ -18,7 +20,7 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 import be.walbertjossart.JavaBeans.Users;
-
+ 
 public class UsersDAO extends DAO<Users>{
 	private static final String	baseUrl = "http://localhost:8080/Project_PresentList_API/api"; //final because it won't to be changed later
 	private Client client;
@@ -71,7 +73,7 @@ public class UsersDAO extends DAO<Users>{
 
 	@Override
 	public Users find(int id) {
- 		return null;
+		return null;
 	}
 
 	@Override
@@ -89,6 +91,27 @@ public class UsersDAO extends DAO<Users>{
 				Users user = mapper.readValue(array.get(i).toString(), Users.class);
 				users.add(user);
 			}
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+ 	
+		return users;
+	}
+	
+	public Users GetUser(String pseudo, String password) {
+		MultivaluedMap<String, String> paramsPost = new MultivaluedMapImpl();
+		paramsPost.add("pseudo", pseudo);
+		paramsPost.add("password", password);
+ 
+		Users users = new Users();
+		String APIresponse = ressource
+				.path("user/login")
+				.accept(MediaType.APPLICATION_JSON)
+				.post(String.class, paramsPost);
+		
+ 		try { 
+			users = mapper.readValue(APIresponse, Users.class);
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
