@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="be.walbertjossart.JavaBeans.Users"%>
+<%@page import="javax.servlet.http.HttpSession"
+import="be.walbertjossart.JavaBeans.Users"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,12 @@
 <title>Main Page</title>
 </head>
 <body>
+<p>Welcome on the application</p>
+<%
+	Users user=(Users)session.getAttribute("user");
+%>
+<%="Hello "+user.getPseudo() %>
 
-<% Users users =  (Users)request.getAttribute("users");%>
-<%= users.getPseudo() %>
+<a href="LogOut">Log Out</a>
 </body>
 </html>
