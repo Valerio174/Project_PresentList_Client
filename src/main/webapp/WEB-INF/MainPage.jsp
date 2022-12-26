@@ -15,6 +15,6 @@ import="be.walbertjossart.JavaBeans.Users"%>
 %>
 <%="Hello "+user.getPseudo() %>
 
-<a href="LogOut">Log Out</a>
+<a href="LogOutServlet">Log Out</a>
 </body>
 </html>
