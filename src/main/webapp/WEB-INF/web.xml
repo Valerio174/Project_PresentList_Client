@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  
+  <filter>
+  	<filter-name>LogInFilter</filter-name>
+  	<filter-class>be.walbertjossart.Filters.LogInFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LogInFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   <display-name>Project_PresentList_Client</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -9,8 +19,8 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  
-   <servlet>
+    
+  <servlet>
   	<servlet-name>HomePageServlet</servlet-name>
   	<servlet-class>be.walbertjossart.Servlets.HomePageServlet</servlet-class>
   </servlet>
@@ -18,8 +28,19 @@
     <servlet-mapping>
       <servlet-name>HomePageServlet</servlet-name>
       <url-pattern>/HomePageServlet</url-pattern>
-  </servlet-mapping>
+      <url-pattern>/</url-pattern>
+   </servlet-mapping>
  
+ <servlet>
+  	<servlet-name>MainPageServlet</servlet-name>
+  	<servlet-class>be.walbertjossart.Servlets.MainPageServlet</servlet-class>
+  </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>MainPageServlet</servlet-name>
+      <url-pattern>/MainPageServlet</url-pattern>
+  </servlet-mapping>
+  
 	<servlet>
 		<servlet-name>LogInServlet</servlet-name>
 		<servlet-class>be.walbertjossart.Servlets.LogInServlet</servlet-class>
@@ -37,5 +58,26 @@
 		<servlet-name>SignInServlet</servlet-name>
 		<url-pattern>/SignInServlet</url-pattern>
 	</servlet-mapping>
-  
+	
+	<servlet>
+		<servlet-name>CreateListServlet</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.CreateListServlet</servlet-class>
+	</servlet>
+ 	<servlet-mapping>
+		<servlet-name>CreateListServlet</servlet-name>
+		<url-pattern>/CreateListServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.LogOut</servlet-class>
+	</servlet>
+ 	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/LogOut</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
 </web-app>
