@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  
+  <!--  FILTERS-->
   <filter>
   	<filter-name>LogInFilter</filter-name>
   	<filter-class>be.walbertjossart.Filters.LogInFilter</filter-class>
@@ -20,63 +20,77 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
     
-  <servlet>
-  	<servlet-name>HomePageServlet</servlet-name>
-  	<servlet-class>be.walbertjossart.Servlets.HomePageServlet</servlet-class>
-  </servlet>
-  
+    <!-- ERRORS PAGES -->
+	<error-page>
+	  <error-code>401</error-code>
+	  <location>/WEB-INF/ErrorsJSP/Error401.jsp</location>
+	</error-page>
+	<!-- <error-page>
+	  <error-code>403</error-code>
+	  <location>/WEB-INF/ErrorsJSP/ErrorPage403.jsp</location>
+	</error-page> -->
+	<error-page>
+	  <error-code>404</error-code>
+	  <location>/WEB-INF/ErrorsJSP/ErrorPage404.jsp</location>
+	</error-page>
+	<!-- <error-page>
+	  <error-code>500</error-code>
+	  <location>/WEB-INF/ErrorsJSP/ErrorPage500.jsp</location>
+	</error-page> -->
+
+    <!-- SERVLETS  -->
+  	<servlet>
+  		<servlet-name>HomePageServlet</servlet-name>
+  		<servlet-class>be.walbertjossart.Servlets.HomePageServlet</servlet-class>
+  	</servlet>
+  	<servlet>
+  		<servlet-name>MainPageServlet</servlet-name>
+  		<servlet-class>be.walbertjossart.Servlets.MainPageServlet</servlet-class>
+  	</servlet>
+	<servlet>
+		<servlet-name>LogInServlet</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.LogInServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SignInServlet</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.SignInServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CreateListServlet</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.CreateListServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>be.walbertjossart.Servlets.LogOut</servlet-class>
+	</servlet>
+  <!-- SERVLETS MAPPING-->
     <servlet-mapping>
       <servlet-name>HomePageServlet</servlet-name>
       <url-pattern>/HomePageServlet</url-pattern>
       <url-pattern>/</url-pattern>
    </servlet-mapping>
- 
- <servlet>
-  	<servlet-name>MainPageServlet</servlet-name>
-  	<servlet-class>be.walbertjossart.Servlets.MainPageServlet</servlet-class>
-  </servlet>
-  
     <servlet-mapping>
       <servlet-name>MainPageServlet</servlet-name>
       <url-pattern>/MainPageServlet</url-pattern>
   </servlet-mapping>
-  
-	<servlet>
-		<servlet-name>LogInServlet</servlet-name>
-		<servlet-class>be.walbertjossart.Servlets.LogInServlet</servlet-class>
-	</servlet>
  	<servlet-mapping>
 		<servlet-name>LogInServlet</servlet-name>
 		<url-pattern>/LogInServlet</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>SignInServlet</servlet-name>
-		<servlet-class>be.walbertjossart.Servlets.SignInServlet</servlet-class>
-	</servlet>
  	<servlet-mapping>
 		<servlet-name>SignInServlet</servlet-name>
 		<url-pattern>/SignInServlet</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>CreateListServlet</servlet-name>
-		<servlet-class>be.walbertjossart.Servlets.CreateListServlet</servlet-class>
-	</servlet>
  	<servlet-mapping>
 		<servlet-name>CreateListServlet</servlet-name>
 		<url-pattern>/CreateListServlet</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>LogOut</servlet-name>
-		<servlet-class>be.walbertjossart.Servlets.LogOut</servlet-class>
-	</servlet>
  	<servlet-mapping>
 		<servlet-name>LogOut</servlet-name>
 		<url-pattern>/LogOut</url-pattern>
 	</servlet-mapping>
 
+<!-- SESSION -->
 	<session-config>
 		<session-timeout>60</session-timeout>
 	</session-config>

@@ -37,37 +37,31 @@ import be.walbertjossart.JavaBeans.Users;
 				session.invalidate();
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/HomePageServlet");
 				dispatcher.forward(request, response);
-				System.out.println("on est connecté et on veut accéder à la HomePage ou loginpage ou signinpage");
-			}
+ 			}
 			else{
 				if(isHomePage){ 
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/HomePageServlet");
 					dispatcher.forward(request, response);
-					System.out.println("on est pas connecté et on veut accéder à la HomePage");
-				}
+ 				}
 				else if(isLoginPage){
 					session.invalidate();
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/LogInServlet");
 					dispatcher.forward(request, response);
-					System.out.println("on est pas connecté et on veut accéder à la LoginPage");
-				}
+ 				}
 				else if(isSignInPage){
 					session.invalidate();
-					RequestDispatcher dispatcher = request.getRequestDispatcher("SignInServlet");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/SignInServlet");
 					dispatcher.forward(request, response);
-					System.out.println("on est pas connecté et on veut accéder à la SignPage");
-				}
+ 				}
 			}		 
 		}
 		else{
 		if(isLogged){
 			chain.doFilter(request, response);
-			System.out.println("on veut accéder à une page et on est connecté==> tout s'est bien passé");
-		}
+ 		}
 		else {
 			((HttpServletResponse)response).sendError(HttpServletResponse.SC_UNAUTHORIZED);
-			System.out.println("on veut accéder à une page et on est pas connecté");
-			}
+ 			}
 		}
  	}
 	 

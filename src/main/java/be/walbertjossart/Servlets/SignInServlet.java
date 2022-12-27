@@ -19,7 +19,7 @@ import be.walbertjossart.JavaBeans.Users;
      }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/SignIn.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/JSP/SignIn.jsp").forward(request, response);
 	}
 
 
@@ -36,7 +36,7 @@ import be.walbertjossart.JavaBeans.Users;
 		if(request.getParameter("submit") != null) {
 			if(pseudoParam==null || passwordParam==null || pseudoParam.equals("") || passwordParam.equals("") || emailParam==null || emailParam.equals("")){
 				request.setAttribute("error", "Username, password or email empty ! Go back to <a href=\"/Project_PresentList_Client/SignInServlet\">Sign In Page</a>");
-			 	getServletContext().getRequestDispatcher("/WEB-INF/Error.jsp").forward(request, response);
+			 	getServletContext().getRequestDispatcher("/WEB-INF/ErrorsJSP/Error.jsp").forward(request, response);
 			 			
 			}
 			else {
@@ -49,12 +49,12 @@ import be.walbertjossart.JavaBeans.Users;
 				request.setAttribute("users", users);
 				try {
 					if(users.insertUsers()) {
-						this.getServletContext().getRequestDispatcher("/WEB-INF/HomePage.jsp").forward(request, response);
+						this.getServletContext().getRequestDispatcher("/WEB-INF/JSP/HomePage.jsp").forward(request, response);
 
 					}
 					else {
 						request.setAttribute("error", "An error during the register ! Go back to <a href=\"/Project_PresentList_Client/SignInServlet\">Sign In Page</a>");
-					 	getServletContext().getRequestDispatcher("/WEB-INF/Error.jsp").forward(request, response);
+					 	getServletContext().getRequestDispatcher("/WEB-INF/ErrorsJSP/Error.jsp").forward(request, response);
 
 					}
 				} catch (SQLException e) {

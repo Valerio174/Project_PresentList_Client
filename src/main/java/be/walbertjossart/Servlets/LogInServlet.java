@@ -22,7 +22,7 @@ import be.walbertjossart.JavaBeans.Users;
 
 	 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/LogIn.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/JSP/LogIn.jsp").forward(request, response);
 	}
 
 	 
@@ -37,7 +37,7 @@ import be.walbertjossart.JavaBeans.Users;
 		if(request.getParameter("submit") != null) {
 			if(pseudoParam==null || passwordParam==null || pseudoParam.equals("") || passwordParam.equals("")){
 				request.setAttribute("error", "Username or password empty ! Go back to <a href=\"/Project_PresentList_Client/LogInServlet\">Log In Page</a>");
-	 			getServletContext().getRequestDispatcher("/WEB-INF/Error.jsp").forward(request, response);
+	 			getServletContext().getRequestDispatcher("/WEB-INF/ErrorsJSP/Error.jsp").forward(request, response);
 	 			
 			}
 			else {
@@ -62,7 +62,7 @@ import be.walbertjossart.JavaBeans.Users;
 
 				}else {
 					request.setAttribute("error", "Username or password incorrect or not found ! Go back to <a href=\"/Project_PresentList_Client/LogInServlet\">Log In Page</a>");
-		 			getServletContext().getRequestDispatcher("/WEB-INF/Error.jsp").forward(request, response);
+		 			getServletContext().getRequestDispatcher("/WEB-INF/ErrorsJSP/Error.jsp").forward(request, response);
 		 			
 				}
 

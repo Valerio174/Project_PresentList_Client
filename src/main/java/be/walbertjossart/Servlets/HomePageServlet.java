@@ -24,7 +24,7 @@ import be.walbertjossart.JavaBeans.Users;
 	 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
-		this.getServletContext().getRequestDispatcher("/WEB-INF/HomePage.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/JSP/HomePage.jsp").forward(request, response);
 
 	}
 
