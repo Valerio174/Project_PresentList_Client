@@ -11,7 +11,7 @@ public class List implements Serializable{
 	private int id_list;
 	private LocalDate limit_date;
 	private String occasion;
-	private boolean state;
+	private String state;
 	private ArrayList<Present> presents;
 	private Users owner;
 	private ArrayList<Users> guests;
@@ -19,7 +19,7 @@ public class List implements Serializable{
 	/*Constructor(s)*/
 	public List() {}
 
-	public List(int id_list, LocalDate limit_date, String occasion, boolean state, Users owner, Users guest, Present present) {
+	public List(int id_list, LocalDate limit_date, String occasion, String state, Users owner, Users guest, Present present) {
 		this.id_list = id_list;
 		this.limit_date = limit_date;
 		this.occasion = occasion;
@@ -51,10 +51,10 @@ public class List implements Serializable{
 	public void setOccasion(String occasion) {
 		this.occasion = occasion;
 	}
-	public boolean isState() {
+	public String GetState() {
 		return state;
 	}
-	public void setState(boolean state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 

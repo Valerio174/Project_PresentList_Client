@@ -44,12 +44,10 @@ import be.walbertjossart.JavaBeans.Users;
 					dispatcher.forward(request, response);
  				}
 				else if(isLoginPage){
-					session.invalidate();
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/LogInServlet");
 					dispatcher.forward(request, response);
  				}
 				else if(isSignInPage){
-					session.invalidate();
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/SignInServlet");
 					dispatcher.forward(request, response);
  				}

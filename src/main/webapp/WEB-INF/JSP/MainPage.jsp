@@ -16,5 +16,6 @@ import="be.walbertjossart.JavaBeans.Users"%>
 <%="Hello "+user.getPseudo() %>
 
 <a href="LogOutServlet">Log Out</a>
+<a href="TestServlet"">Recuperer all</a>
 </body>
 </html>
